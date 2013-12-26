@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/zsh
 FIRMWARE_PATH=core-firmware/build/core-firmware.bin 
-./config # read in device id, access token
+source config # read in device id, access token
 
 curl -X PUT -F file=@${FIRMWARE_PATH} -F file_type=binary \
   "https://api.spark.io/v1/devices/${DEVICE_ID}?access_token=${ACCESS_TOKEN}"
